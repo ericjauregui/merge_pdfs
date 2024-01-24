@@ -1,16 +1,15 @@
 from PyPDF2 import PdfMerger
-import os
+from os import listdir, path
 
-cwd = os.path.dirname(os.path.abspath(__file__))
+# cwd = os.path.dirname(os.path.abspath(__file__))
 
-os.chdir(cwd.split('Projects')[0] + r'Downloads\Merge')
-new_cwd = os.path.abspath(os.curdir)
-
-pdfs = os.listdir()
+pdfs = [i for i in listdir("input/") if i.endswith(".pdf")]
+print("pdfs to merge:\n", pdfs)
 
 merger = PdfMerger()
 
-mapped = [merger.append(pdf) for pdf in pdfs]
+mapped = [merger.append(path.join("input", pdf)) for pdf in pdfs]
 
-merger.write('California Earrings Catalog July 2023.pdf')
+merger.write("output/merged_pdf.pdf")
+print("\n merged_pdf.pdf created in output/ !")
 merger.close()
