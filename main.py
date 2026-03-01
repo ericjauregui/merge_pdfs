@@ -1,21 +1,6 @@
-import os
-import sys
 from pathlib import Path
 
 from PyPDF2 import PdfMerger
-
-
-def ensure_project_venv(project_root: Path) -> None:
-	venv_python = project_root / ".venv" / "bin" / "python"
-	if not venv_python.exists():
-		return
-
-	current_python = Path(sys.executable).resolve()
-	if current_python == venv_python.resolve():
-		return
-
-	print("Switching to project virtual environment (.venv)...")
-	os.execv(str(venv_python), [str(venv_python), str(Path(__file__).resolve())])
 
 
 def get_output_filename() -> str:
@@ -39,7 +24,6 @@ def get_output_filename() -> str:
 
 def main() -> None:
 	project_root = Path(__file__).resolve().parent
-	ensure_project_venv(project_root)
 
 	input_dir = project_root / "input"
 	output_dir = project_root / "output"

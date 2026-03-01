@@ -1,7 +1,7 @@
 [project]
 name = "merge-pdfs"
 version = "0.1.0"
-description = "Add your description here"
+description = "Simple utility to merge PDFs from input/ into output/."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

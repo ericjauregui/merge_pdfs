@@ -12,7 +12,7 @@ Simple Python utility to merge all PDFs inside `input/` into one file at `output
 From the project root:
 
 ```bash
-source .venv/bin/activate && python main.py
+uv run python main.py
 ```
 
 The script asks for the output filename at runtime:
@@ -31,7 +31,6 @@ Enter output PDF filename [merged_pdf.pdf]:
 - If both folders are missing, both are created automatically.
 - If `input/` exists but contains no `.pdf` files, the script exits safely with a helpful message.
 - PDFs are merged in filename-sorted order.
-- If `.venv/bin/python` exists and you run with a different Python interpreter, the script re-runs itself with the project virtual environment.
 
 Expected structure after first run:
 
@@ -41,7 +40,6 @@ merge_pdfs/
 ├── output/
 │   └── merged_pdf.pdf   # created when one or more PDFs exist in input/
 ├── main.py
-├── .venv/
 └── README.md
 ```
 
