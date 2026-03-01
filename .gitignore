@@ -5,6 +5,9 @@ __pycache__/
 .DS_Store
 *.bat
 *.pdf
+.venv/
+input/
+output/
 
 # C extensions
 *.so
